@@ -29,7 +29,7 @@ console.log(samsCurryAddition(4, 5)); //9
 console.log(addingCurry(10)(4)); //14
 
 //Example 2
-function checkStock(stockID) {
+export default function checkStock(stockID) {
   //some check code
   if (!stockID) {
     throw new Error("Missing stock ID");
