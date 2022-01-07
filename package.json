@@ -1,0 +1,22 @@
+{
+  "name": "advanced-js-topics",
+  "version": "1.0.0",
+  "description": "Hands on practice with various obscure JS topics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/torressam333/advanced-js-topics.git"
+  },
+  "keywords": [
+    "Javascript"
+  ],
+  "author": "Samuel Torres",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/torressam333/advanced-js-topics/issues"
+  },
+  "homepage": "https://github.com/torressam333/advanced-js-topics#readme"
+}
