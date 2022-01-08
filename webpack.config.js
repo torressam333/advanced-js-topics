@@ -7,4 +7,8 @@ module.exports = {
     filename: "bundle.js",
   },
   mode: "development",
+  stats: {
+    modules: false,
+  },
+  devtool: "eval-cheap-module-source-map",
 };
