@@ -58,5 +58,5 @@ export default function checkStock(stockID) {
   };
 }
 
-let orderItem298 = checkStock("FN9382")("SOUTH")(3);
+let orderItem298 = checkStock("12345abc")("AZ")(35);
 console.log(orderItem298);
