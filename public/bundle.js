@@ -16,7 +16,17 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _topics_memoization_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./topics/memoization.js */ \"./src/topics/memoization.js\");\n/* harmony import */ var _topics_currying_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./topics/currying.js */ \"./src/topics/currying.js\");\n\n\n\n\n//# sourceURL=webpack://advanced-js-topics/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _topics_memoization_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./topics/memoization.js */ \"./src/topics/memoization.js\");\n/* harmony import */ var _topics_currying_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./topics/currying.js */ \"./src/topics/currying.js\");\n/* harmony import */ var _topics_async_await_with_fetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./topics/async-await-with-fetch */ \"./src/topics/async-await-with-fetch.js\");\n//This file is used for mutli file script execution\n\n\n\n\n\n//# sourceURL=webpack://advanced-js-topics/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/topics/async-await-with-fetch.js":
+/*!**********************************************!*\
+  !*** ./src/topics/async-await-with-fetch.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Users)\n/* harmony export */ });\n/** *\n * This is an example of how to make api calls using async-await\n * along with the fetch api in Vanilla Javascript :)\n */\n\nclass Users {\n  async getUsersAsJson() {\n    const response = await fetch(\"https://jsonplaceholder.typicode.com/users\");\n\n    //Error handling for non 2xx responses\n    if (!response.ok) {\n      throw new Error(`Something went wrong: ${response.status}`);\n    }\n\n    return await response.json();\n  }\n\n  //Regular es6 method\n  extractUserData(users) {\n    let userPromise = this.getUsersAsJson();\n\n    userPromise.then((users) => {\n      users.map((user) => {\n        console.log(user); //Returns individual user objects\n        console.log(user.name); // pull properties off of the user object\n      });\n    });\n  }\n}\n\nlet usersClass = new Users(); //Users instance declaration\nconst usersData = usersClass.getUsersAsJson();\nusersClass.extractUserData(usersData);\n\n\n//# sourceURL=webpack://advanced-js-topics/./src/topics/async-await-with-fetch.js?");
 
 /***/ }),
 
