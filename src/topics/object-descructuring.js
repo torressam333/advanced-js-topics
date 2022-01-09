@@ -48,6 +48,6 @@ console.log(birthDay); //March, 20
 console.log(firstPainingEver); //Potato Eaters
 console.log(cityLivedIn); //Zundert
 
-/*Object destructuring is a concise way to break apart an object while removing the need to
+/*Summation: Object destructuring is a concise way to break apart an object while removing the need to
  * define individual properties on their own lines.
  */
