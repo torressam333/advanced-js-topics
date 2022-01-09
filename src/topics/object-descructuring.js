@@ -1,6 +1,7 @@
 /**
- * Object destructuring is a new way to extract elements from an object or an array.
- * Destructuring allows us to unpack values from array or objects and bind them to variables.
+ * Object destructuring is a way to extract elements from an object or an array.
+ * Destructuring allows us to unpack values from array or objects and bind them to variables without the need
+ * for redundant declaration.
  * **/
 
 //ES2015 example
@@ -15,12 +16,11 @@ const country = artist.homeCountry;
 
 artistName; //Vincent van Gogh
 
-//-----------------------------------------//
+//---------------------------------------------------------------------------------------------------------------//
 //ES6 Destructuring basic concept/structure => (const { identifier } = expression;)
 //identifier: Is the name of the property that will be accessed and will contain a property value once the object has been destructured.
 //expression: Should evaluate to an object.
 
-//Example
 const artistDestructured = {
   fullName: "Vincent van Gogh",
   homeCountry: "Netherlands",
@@ -31,14 +31,14 @@ const artistDestructured = {
 };
 
 //With destructuring neither the property names nor the obejct variables are duplicated
-//Properties that do no exist in the object can be assigned a default value (see birthday below)
+//Properties that do not exist in the initial object can be assigned a default value (see birthday below)
 //If you wish to use a different name for the property than is used in the original object you may use an alias
-//You may even extract data from a nested object using
+//You may even extract data from a nested object using nested destructuring (fancy way of saying: using an object within an object :D)
 const {
   fullName,
   homeCountry,
   birthDay = "March, 20", //giving a property a default value
-  firstPainting: firstPainingEver, //alias
+  firstPainting: firstPainingEver, //alias mentioned above
   address: { cityLivedIn }, //nested destructuring to get access to the nested "cityLivedIn" property
 } = artistDestructured;
 
@@ -47,3 +47,7 @@ console.log(homeCountry); //Netherlands
 console.log(birthDay); //March, 20
 console.log(firstPainingEver); //Potato Eaters
 console.log(cityLivedIn); //Zundert
+
+/*Object destructuring is a concise way to break apart an object while removing the need to
+ * define individual properties on their own lines.
+ */
