@@ -1,6 +1,10 @@
 /** *
  * This is an example of how to make api calls using async-await
  * along with the fetch api in Vanilla Javascript :)
+ * 
+ * How it works:
+ * When you await a promise, the function is paused in a non-blocking way until the promise settles. 
+ * If the promise fulfills, you get the value back. If the promise rejects, the rejected value is thrown
  */
 
 export default class Users {
