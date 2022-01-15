@@ -6,7 +6,7 @@
 //.filter() qualifies as a HOF since it accepts a function as a parameter
 
 export default class HigherOrder {
-    builtInHof () {
+    builtInHof() {
         //Example: Return all words in a list that contain a specific string
         const listOfWords = ['Crown', 'Cheeseburger', 'Mountain', 'Gown', 'Brown', 'Today'];
 
@@ -22,7 +22,7 @@ export default class HigherOrder {
     incrementArray(arrOfNums, n) {
         let results = [];
 
-        arrOfNums.forEach ((num) => console.log (results.push (num + n)));
+        arrOfNums.forEach ((num) => console.log(results.push(num + n)));
     }
 
     //But what if we also wanted a decrementing array?
@@ -30,7 +30,7 @@ export default class HigherOrder {
     decrementArray(arrOfNums, n) {
         let results = [];
 
-        arrOfNums.forEach ((num) => console.log (results.push (num - n)));
+        arrOfNums.forEach((num) => console.log(results.push(num - n)));
     }
 
     /*What's wrong with this picture? Hmm a lot of code duplication don't you think?
