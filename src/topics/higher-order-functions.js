@@ -2,7 +2,7 @@
   are called higher-order functions.
 */
 
-//Javascript has some built in HOF's. Array.protoyupr.filter() is an example.
+//Javascript has some built in HOF's. Array.prototyoe.filter() is an example.
 //.filter() qualifies as a HOF since it accepts a function as a parameter
 
 export default class HigherOrder {
