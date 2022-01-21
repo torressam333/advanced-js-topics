@@ -20,7 +20,7 @@ export default class Users {
   }
 
   //Regular es6 method
-  extractUserData(users) {
+  extractUserData() {
     let userPromise = this.getUsersAsJson();
 
     userPromise
