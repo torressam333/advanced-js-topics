@@ -6,12 +6,12 @@ console.log(names[1]);
 
 //Loop through arrays
 for (const el of names) {
+  //Logs all items in array
   console.log(el);
 }
 
 //Add new items to original array
 names.push("Rick");
-
 console.log(names);
 
 //Concat a new name w/o changing original array
@@ -21,8 +21,7 @@ console.log(names); //Sue will not appear
 console.log(newNamesArray); //Sue will appear
 
 /*Deletion and Finding elements in Arrays*/
-
-//Finding is performance intensive b/c of has to search the entire array
+//Finding is performance intensive b/c ir has to search the entire array
 const johnsIndex = names.findIndex((el) => el === "John");
 //Returns 1 and not 1,4 as it stops execition on the first finding
 console.log(johnsIndex);
