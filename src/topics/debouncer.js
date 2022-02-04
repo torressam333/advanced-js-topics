@@ -18,7 +18,7 @@
 //   },
 //   3000);
 
-const swapiApiCall = async () => {
+const swapiApiCall = async (id) => {
   const response = await fetch(`https://swapi.dev/api/planets/${id}`);
 
   //I can do an inline return but want to give this
@@ -28,13 +28,19 @@ const swapiApiCall = async () => {
   return starWarsPlanet;
 };
 
+//Return random number between 1 - 10 for plant id call
+const generateRandomNum = () => {
+  //ceil ensures we don't get zero
+  return Math.ceil(Math.random() * 10);
+};
+
 const debouncer = () => {
   const hoverDiv = document.querySelector(".debounce-container");
 
   //As the user mouses over fire an event
   hoverDiv.addEventListener("mouseover", () => {
     //Make api call when mouseover happens (this will end badly without debounce)
-    swapiApiCall();
+    swapiApiCall(1).then((response) => console.log(response));
   });
 };
 
