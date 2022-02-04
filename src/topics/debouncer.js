@@ -21,6 +21,12 @@
 const swapiApiCall = async (id) => {
   const response = await fetch(`https://swapi.dev/api/planets/${id}`);
 
+  if (!response.ok) {
+    const message = `Whoops...something went wrong: ${response.status}`;
+
+    throw new Error(message);
+  }
+
   //I can do an inline return but want to give this
   //variable a cool name :)
   const starWarsPlanet = await response.json();
@@ -39,9 +45,14 @@ const debouncer = () => {
 
   //As the user mouses over fire an event
   hoverDiv.addEventListener("mouseover", () => {
+    const randomNumber = generateRandomNum();
+    let swapiResultsSpace = document.querySelector("#swapi-results");
+
     //Make api call when mouseover happens (this will end badly without debounce)
-    swapiApiCall(1).then((response) => console.log(response));
+    swapiApiCall(randomNumber).then((response) => {
+      console.log(typeof response);
+    });
   });
 };
 
-console.log(debouncer());
+debouncer();
