@@ -22,3 +22,9 @@
   padding: 3rem 0;
   text-align: center;
 }
+
+.swapi-div {
+  border: 1px solid #eee;
+  height: 15rem;
+  width: 35rem;
+}
