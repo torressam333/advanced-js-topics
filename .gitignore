@@ -1,2 +1,3 @@
 node_modules
 .idea
+src/topics/array_challenges/merge_arrays.js
