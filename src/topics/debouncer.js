@@ -42,7 +42,7 @@ const generateRandomNum = () => {
 
 const debouncer = () => {
   const hoverDiv = document.querySelector(".debounce-container");
-  let swapiResultsSpace = document.querySelector("#swapi-results");
+  let swapiResultsSpace = document.querySelector("#swapi-results-list");
   const randomNumber = generateRandomNum();
 
   //As the user mouses over fire an event
@@ -52,10 +52,13 @@ const debouncer = () => {
       const keys = Object.keys(response);
 
       keys.map((key) => {
-        swapiResultsSpace.innerHTML += `${key}: ${response[key]}`;
+        swapiResultsSpace.innerHTML += `<li class='swapi-item'>
+        <span class="key">${key}:</span> ${response[key]}</li>`;
       });
     });
   });
 };
+
+const debounceFunction = (() => {}, 300);
 
 debouncer();

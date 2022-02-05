@@ -13,7 +13,7 @@
   justify-content: center;
   opacity: 0.7;
   height: 15rem;
-  width: 35rem;
+  width: 40rem;
 }
 
 .debounce-text {
@@ -24,7 +24,27 @@
 }
 
 .swapi-div {
-  border: 1px solid #eee;
-  height: 15rem;
-  width: 35rem;
+  border: 2px solid #eee;
+  height: fit-content;
+  padding: 1.5rem;
+  width: 40rem;
+  word-wrap: break-word;
+}
+
+.swapi-div h3 {
+  text-align: center;
+}
+
+#swapi-results-list {
+  font-size: 1rem;
+}
+
+.swapi-item {
+  white-space: normal;
+  overflow: hidden;
+}
+
+.key {
+  font-size: 1.2rem;
+  font-weight: bold;
 }
