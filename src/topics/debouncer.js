@@ -46,15 +46,19 @@ const getStarWarsPlanetInfo = () => {
       }
 
       //Otherwise make the api call when mouseover happens (this will be expesnive without debounce)
-      swapiApiCall(randomNumber).then((response) => {
-        const keys = Object.keys(response);
+      swapiApiCall(randomNumber)
+        .then((response) => {
+          const keys = Object.keys(response);
 
-        keys.map((key) => {
-          console.log("adding inner");
-          swapiResultsSpace.innerHTML += `<li class='swapi-item'>
+          keys.map((key) => {
+            console.log("adding inner");
+            swapiResultsSpace.innerHTML += `<li class='swapi-item'>
           <span class="key">${key}:</span> ${response[key]}</li>`;
+          });
+        })
+        .catch((error) => {
+          throw Error(`Something went wrong: ${error}`);
         });
-      });
     }, 2000) //Delay the api call to happen every (x) seconds
   );
 };
@@ -73,7 +77,11 @@ const debounceFunction = (callback, delay) => {
   };
 };
 
-//Execute our function
-getStarWarsPlanetInfo();
+//Needed for testing DOM manipulation -
+//Otherwise element queries execute before the DOM is loaded
+document.addEventListener("DOMContentLoaded", function () {
+  //Execute our function
+  getStarWarsPlanetInfo();
+});
 
-module.exports = { generateRandomNum };
+module.exports = { generateRandomNum, swapiApiCall };
