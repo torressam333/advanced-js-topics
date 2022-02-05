@@ -45,20 +45,36 @@ const debouncer = () => {
   let swapiResultsSpace = document.querySelector("#swapi-results-list");
   const randomNumber = generateRandomNum();
 
-  //As the user mouses over fire an event
-  hoverDiv.addEventListener("click", () => {
-    //Make api call when mouseover happens (this will end badly without debounce)
-    swapiApiCall(randomNumber).then((response) => {
-      const keys = Object.keys(response);
+  //As the user mouses over fire an event but use debounceFunciton as the callback
+  //Instead of an arrow function
+  hoverDiv.addEventListener(
+    "mouseover",
+    debounceFunction(() => {
+      //Make api call when mouseover happens (this will end badly without debounce)
+      swapiApiCall(randomNumber).then((response) => {
+        const keys = Object.keys(response);
 
-      keys.map((key) => {
-        swapiResultsSpace.innerHTML += `<li class='swapi-item'>
+        keys.map((key) => {
+          swapiResultsSpace.innerHTML += `<li class='swapi-item'>
         <span class="key">${key}:</span> ${response[key]}</li>`;
+        });
       });
-    });
-  });
+    }, 2000) //Delay the api call to happen every (x) seconds
+  );
 };
 
-const debounceFunction = (() => {}, 300);
+const debounceFunction = (callback, delay) => {
+  let timeout;
+
+  return (...args) => {
+    const that = this;
+
+    //clear previous timeout
+    clearTimeout(timeout);
+
+    //Set new timeout => implicit return
+    timeout = setTimeout(() => callback.apply(that, args), delay);
+  };
+};
 
 debouncer();
