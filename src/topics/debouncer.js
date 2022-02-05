@@ -6,18 +6,6 @@
  *
  * We can limit how often the request fires by implementing a debouncer
  */
-
-// const debouncer =
-//   (() => {
-//     let counter = 0;
-//     const hoverDiv = document.querySelector(".debounce-container");
-
-//     hoverDiv.addEventListener("mouseenter", () => {
-//       return counter++;
-//     });
-//   },
-//   3000);
-
 const swapiApiCall = async (id) => {
   const response = await fetch(`https://swapi.dev/api/planets/${id}`);
 
@@ -40,23 +28,31 @@ const generateRandomNum = () => {
   return Math.ceil(Math.random() * 10);
 };
 
-const debouncer = () => {
+const getStarWarsPlanetInfo = () => {
   const hoverDiv = document.querySelector(".debounce-container");
   let swapiResultsSpace = document.querySelector("#swapi-results-list");
-  const randomNumber = generateRandomNum();
 
   //As the user mouses over fire an event but use debounceFunciton as the callback
   //Instead of an arrow function
   hoverDiv.addEventListener(
     "mouseover",
     debounceFunction(() => {
-      //Make api call when mouseover happens (this will end badly without debounce)
+      //Declare once event handler fires
+      const randomNumber = generateRandomNum();
+
+      //Empty the element so we don't append to infinity :D
+      if (swapiResultsSpace.innerHTML !== "") {
+        swapiResultsSpace.innerHTML = "";
+      }
+
+      //Otherwise make the api call when mouseover happens (this will be expesnive without debounce)
       swapiApiCall(randomNumber).then((response) => {
         const keys = Object.keys(response);
 
         keys.map((key) => {
+          console.log("adding inner");
           swapiResultsSpace.innerHTML += `<li class='swapi-item'>
-        <span class="key">${key}:</span> ${response[key]}</li>`;
+          <span class="key">${key}:</span> ${response[key]}</li>`;
         });
       });
     }, 2000) //Delay the api call to happen every (x) seconds
@@ -77,4 +73,5 @@ const debounceFunction = (callback, delay) => {
   };
 };
 
-debouncer();
+//Execute our function
+getStarWarsPlanetInfo();
