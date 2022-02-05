@@ -75,3 +75,5 @@ const debounceFunction = (callback, delay) => {
 
 //Execute our function
 getStarWarsPlanetInfo();
+
+module.exports = { generateRandomNum };
