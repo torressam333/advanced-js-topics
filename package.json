@@ -6,7 +6,8 @@
   "scripts": {
     "serve": "live-server public/",
     "build": "webpack",
-    "dev-server": "webpack serve --mode development"
+    "dev-server": "webpack serve --mode development",
+    "test": "jest --watchAll"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
@@ -29,5 +30,8 @@
   "bugs": {
     "url": "https://github.com/torressam333/advanced-js-topics/issues"
   },
-  "homepage": "https://github.com/torressam333/advanced-js-topics#readme"
+  "homepage": "https://github.com/torressam333/advanced-js-topics#readme",
+  "devDependencies": {
+    "jest": "^27.5.0"
+  }
 }
