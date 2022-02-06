@@ -6,13 +6,13 @@
  *
  * We can limit how often the request fires by implementing a debouncer
  */
+//const fetch = require("whatwg-fetch");
+
 const swapiApiCall = async (id) => {
   const response = await fetch(`https://swapi.dev/api/planets/${id}`);
 
-  if (!response.ok) {
-    const message = `Whoops...something went wrong: ${response.status}`;
-
-    throw new Error(message);
+  if (typeof id !== "number") {
+    throw Error("Must provide a number value");
   }
 
   //I can do an inline return but want to give this
@@ -66,14 +66,15 @@ const getStarWarsPlanetInfo = () => {
 const debounceFunction = (callback, delay) => {
   let timeout;
 
+  //ES6, arrow functions use lexical scoping
   return (...args) => {
-    const that = this;
+    const executionContext = this;
 
     //clear previous timeout
     clearTimeout(timeout);
 
     //Set new timeout => implicit return
-    timeout = setTimeout(() => callback.apply(that, args), delay);
+    timeout = setTimeout(() => callback.apply(executionContext, args), delay);
   };
 };
 
