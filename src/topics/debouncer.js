@@ -6,21 +6,7 @@
  *
  * We can limit how often the request fires by implementing a debouncer
  */
-//const fetch = require("whatwg-fetch");
-
-const swapiApiCall = async (id) => {
-  const response = await fetch(`https://swapi.dev/api/planets/${id}`);
-
-  if (typeof id !== "number") {
-    throw Error("Must provide a number value");
-  }
-
-  //I can do an inline return but want to give this
-  //variable a cool name :)
-  const starWarsPlanet = await response.json();
-
-  return starWarsPlanet;
-};
+const swapiApiCall = require("./helpers/swapiApiCall");
 
 //Return random number between 1 - 10 for plant id call
 const generateRandomNum = () => {
