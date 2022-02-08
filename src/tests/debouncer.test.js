@@ -40,4 +40,6 @@ test("It should bring specific back star wars planet data", async () => {
       "url",
     ].sort()
   );
+
+  expect(Object.keys(planetData)).toHaveLength(14);
 });
