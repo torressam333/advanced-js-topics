@@ -1,6 +1,7 @@
 const fetch = require("whatwg-fetch");
 const debounceFile = require("../topics/debouncer");
 const randomNum = debounceFile.generateRandomNum;
+const getStarWarsPlanetInfo = debounceFile.getStarWarsPlanetInfo;
 const swapiApi = require("../topics/helpers/swapiApiCall.js");
 
 /**
@@ -42,4 +43,20 @@ test("It should bring specific back star wars planet data", async () => {
   );
 
   expect(Object.keys(planetData)).toHaveLength(14);
+});
+
+test("It should properly set the query selected variables", () => {
+  const hoverDiv = undefined;
+  let swapiResultsSpace = undefined;
+
+  jest.spyOn(document, "querySelector").mockImplementation((selector) => {
+    switch (selector) {
+      case ".debounce-container":
+        return hoverDiv;
+      case "#swapi-results-list":
+        return swapiResultsSpace;
+    }
+  });
+
+  //expect(document.querySelector).toBeCalledTimes(2);
 });

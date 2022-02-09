@@ -37,7 +37,6 @@ const getStarWarsPlanetInfo = () => {
           const keys = Object.keys(response);
 
           keys.map((key) => {
-            console.log("adding inner");
             swapiResultsSpace.innerHTML += `<li class='swapi-item'>
           <span class="key">${key}:</span> ${response[key]}</li>`;
           });
@@ -71,4 +70,4 @@ document.addEventListener("DOMContentLoaded", function () {
   getStarWarsPlanetInfo();
 });
 
-module.exports = { generateRandomNum, swapiApiCall };
+module.exports = { generateRandomNum, getStarWarsPlanetInfo, swapiApiCall };
