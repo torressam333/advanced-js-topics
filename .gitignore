@@ -2,3 +2,4 @@ node_modules
 .idea
 src/topics/array_challenges
 coverage
+src/basic-examples
