@@ -16,9 +16,10 @@
 const initApp = () => {
   const throttleBtn = document.querySelector(".throttle");
 
+  //Only allow click every 3 seconds
   throttleBtn.addEventListener("click", throttle(clickLog, 3000));
 
-  window.addEventListener("scroll", throttle(scrollingLogger, 500));
+  window.addEventListener("scroll", throttle(scrollingLogger, 3000));
 };
 
 const clickLog = () => console.log("clicked");
@@ -29,7 +30,7 @@ document.addEventListener("DOMContentLoaded", initApp);
 //Can only call functions at a certain intervals
 const throttle = (fn, delay) => {
   let lastTime = 0;
-  let id = 0;
+  let eventID = 0;
 
   return (...args) => {
     const now = new Date().getTime();
