@@ -22,7 +22,6 @@ class SimpleDebounce {
   debounceInputField() {
     let context = this;
     this.input.addEventListener("input", () => {
-      console.log("sam");
       this.debouncer(() => {
         this.displayUserInput();
       }, 1000);
