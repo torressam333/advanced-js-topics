@@ -3,7 +3,7 @@
  *
  * In the simple example provided, I am throttling or "limiting"
  * the frequency in which a user may click a button or how often
- * a scrolling function gets called.
+ * a button click function gets called.
  *
  * If I pass a delay time for a button click (3 seconds in my example)
  * this means that no matter how many times a user clicks the button,
