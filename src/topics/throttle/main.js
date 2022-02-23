@@ -25,6 +25,7 @@ const initApp = () => {
 const clickLog = () => console.log("clicked");
 const scrollingLogger = () => console.log("scrolllinggg");
 
+//App is initialized when dom is loaded
 document.addEventListener("DOMContentLoaded", initApp);
 
 //Can only call functions at a certain intervals
